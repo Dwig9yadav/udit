@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #00f2ff; /* Electric Cyan */
+  --secondary-color: #4ade80; /* Neon Mint */
+  --accent-color: #fef08a; /* Neon Lemon */
+  --bg-dark: #0f172a; /* Deeper Space Navy */
+  --bg-sidebar: #1e1b4b; /* Electric Indigo */
+  --bg-glass: rgba(15, 23, 42, 0.8);
+  --text-main: #f8fafc;
+  --text-vibrant: #00f2ff;
+  --glow-primary: 0 0 15px rgba(0, 242, 255, 0.4);
+  --glow-secondary: 0 0 15px rgba(74, 222, 128, 0.4);
+}
+
+body {
+  font-family: 'Outfit', 'Inter', 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  min-height: 100vh;
+}
+
+html, body, #root {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+/* Base utility for neon text */
+.text-neon {
+  color: var(--primary-color);
+  text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+}
+
+/* Vibrant Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+  border-radius: 10px;
+}

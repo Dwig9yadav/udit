@@ -1,0 +1,14 @@
+tfastapi
+uvicorn
+httpx
+python-dotenv
+pydantic
+python-jose[cryptography]
+passlib[bcrypt]
+bcrypt
+python-multipart
+google-genai
+pypdf
+slowapi
+groq
+hindsight-client>=0.5.0

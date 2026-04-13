@@ -1,0 +1,57 @@
+python : Traceback (most recent call 
+last):
+At line:1 char:1
++ python check_db.py > check_output.txt 
+2>&1; type check_output.txt
++ 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecifie 
+   d: (Traceback (most recent call last)  
+  ::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeComma 
+   ndError
+ 
+  File "C:\Users\Udit Bhatt\OneDrive\Deskt
+op\DocuRag\DOCURAG-main\backend\database.p
+y", line 45, in init_supabase
+    print("\u2705 Supabase connected 
+(lite)")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Udit Bhatt\miniconda3\Lib
+\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,sel
+f.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't 
+encode character '\u2705' in position 0: 
+character maps to <undefined>
+
+During handling of the above exception, 
+another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Udit Bhatt\OneDrive\Deskt
+op\DocuRag\DOCURAG-main\backend\check_db.p
+y", line 3, in <module>
+    from database import get_supabase
+  File "C:\Users\Udit Bhatt\OneDrive\Deskt
+op\DocuRag\DOCURAG-main\backend\database.p
+y", line 66, in <module>
+    init_supabase()
+    ~~~~~~~~~~~~~^^
+  File "C:\Users\Udit Bhatt\OneDrive\Deskt
+op\DocuRag\DOCURAG-main\backend\database.p
+y", line 47, in init_supabase
+    print(f"\u26a0\ufe0f  Supabase init 
+error: {e}")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Udit Bhatt\miniconda3\Lib
+\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,sel
+f.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't 
+encode characters in position 0-1: 
+character maps to <undefined>

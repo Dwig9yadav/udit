@@ -1,0 +1,177 @@
+.voice-assistant-container {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: white;
+}
+
+.voice-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.voice-header h2 {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #fef08a 0%, #008080 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.voice-header p {
+    color: #e0e0e0;
+    font-size: 1.1rem;
+}
+
+.voice-main-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 250px;
+}
+
+.mic-button {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.mic-button:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.mic-button.recording {
+    background: rgba(255, 107, 107, 0.2);
+    border-color: #fef08a;
+    box-shadow: 0 0 40px rgba(255, 107, 107, 0.4);
+}
+
+.mic-button.loading {
+    opacity: 0.7;
+    cursor: wait;
+    animation: rotate 2s linear infinite;
+}
+
+.mic-icon {
+    font-size: 3rem;
+    z-index: 2;
+}
+
+.pulse-ring {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50%;
+    border: 2px solid #fef08a;
+    animation: pulsate 1.5s ease-out infinite;
+    z-index: 1;
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(0.9);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.status-text {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    color: #ffd700;
+    min-height: 30px;
+}
+
+.voice-output-area {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.transcript-box, .answer-box {
+    background: rgba(20, 20, 30, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #8c8c8c;
+    margin-bottom: 0.8rem;
+    display: block;
+}
+
+.transcript-box p {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #ffffff;
+}
+
+.answer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.8rem;
+}
+
+.play-button {
+    background: linear-gradient(135deg, #4A00E0 0%, #8E2DE2 100%);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.play-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(142, 45, 226, 0.4);
+}
+
+.play-button.playing {
+    background: #ff4757;
+    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+}
+
+.answer-content {
+    color: #e0e0e0;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}

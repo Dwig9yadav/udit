@@ -1,0 +1,46 @@
+name: PR Quality Checks
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-pr:
+    name: Validate PR standards
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for merge conflicts
+        run: |
+          if grep -r "<<<<<<< HEAD" src/ backend/ --include="*.py" --include="*.js" 2>/dev/null; then
+            echo "Merge conflicts found!"
+            exit 1
+          fi
+          echo "No merge conflicts found"
+
+      - name: Check no .env files committed
+        run: |
+          if find . -name ".env" -not -path "./.git/*" | grep -q .; then
+            echo "ERROR: .env file found — never commit secrets!"
+            exit 1
+          fi
+          echo "No .env files found"
+
+      - name: Check no hardcoded secrets
+        run: |
+          if grep -r "GEMINI_API_KEY\s*=\s*['\"][A-Za-z0-9]" backend/ --include="*.py" 2>/dev/null; then
+            echo "Hardcoded API key found!"
+            exit 1
+          fi
+          echo "No hardcoded secrets found"
+
+      - name: Lint Python with flake8
+        run: |
+          pip install flake8
+          flake8 backend/ --max-line-length=100 --exclude=backend/tests/ --count --statistics
+
+      - name: Check requirements.txt exists
+        run: |
+          test -f requirements.txt || (echo "requirements.txt missing!" && exit 1)
+          test -f backend/requirements.txt || echo "Note: no backend/requirements.txt"
